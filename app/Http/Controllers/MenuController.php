@@ -217,7 +217,7 @@ class MenuController extends Controller
     }
 
     public function addMenu(Request $request) {
-        // $this->authorize('create', Auth::user());
+        $this->authorize('create', Auth::user());
 
         $validateData = $request->validate([
             'food_name' => 'bail|required|string|min:5',
