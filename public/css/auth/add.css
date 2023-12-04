@@ -1,0 +1,149 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.body-class {
+    background-image: url('../../images/background-image.jpg');
+    background-color: dimgray;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+.add-body {
+    width: 100%;
+    height: fit-content;
+    font-style: normal;
+    color: gold;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 48px 15% 48px 15%;
+}
+
+.add-title {
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+    color: gold;
+}
+
+.add-title h1 {
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+.form-body {
+    color: gold;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+}
+
+.form-body label {
+    width: fit-content;
+    height: fit-content;
+    font-weight: bold;
+}
+
+.form-body input[type="text"] {
+    width: 640px;
+    color: black;
+}
+
+.form-body input[type="file"] {
+    font-weight: bold;
+    color: gold;
+}
+
+.form-body button {
+    width: fit-content;
+    height: fit-content;
+    padding: 0.3em 0.5em;
+}
+
+.form-col {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+
+.form-col label {
+    color: gold;
+    font-size: large;
+    font-weight: bolder;
+}
+
+.form-col select {
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 0.2em 0.5em;
+    color: black;
+    font-size: large;
+    font-weight: bolder;
+}
+
+.form-col input[type="text"], .form-col input[type="number"] {
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 0.2em 0.5em;
+}
+
+.form-col input[type="file"] {
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: dimgray;
+    color: gold;
+    font-size: large;
+    font-weight: bolder;
+}
+
+.form-submit {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.form-submit button {
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: dimgray;
+    color: gold;
+    font-size: large;
+    font-weight: bolder;
+}
+
+.cancel {
+    color: gold;
+    font-size: large;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.add-error-alerts {
+    position: absolute;
+    top: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    padding: 2em;
+}
+
+.add-error-alerts .alert-message {
+    margin-right: 1em;
+    width: 30em;
+}
+
+.error-input {
+    color: gold;
+}
