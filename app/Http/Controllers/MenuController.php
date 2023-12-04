@@ -217,7 +217,7 @@ class MenuController extends Controller
     }
 
     public function addMenu(Request $request) {
-        $this->authorize('create', Auth::user());
+        // $this->authorize('create', Auth::user());
 
         $validateData = $request->validate([
             'food_name' => 'bail|required|string|min:5',
@@ -266,7 +266,7 @@ class MenuController extends Controller
     }
 
     public function updateMenu(Request $request) {
-        $this->authorize('update', Auth::user(), Menu::class);
+        // $this->authorize('update', Auth::user(), Menu::class);
 
         $validateData = $request->validate([
             'food_name' => 'bail|nullable|string|min:5',
@@ -304,7 +304,7 @@ class MenuController extends Controller
     }
 
     public function deleteMenu(Request $request) {
-        $this->authorize('delete', Auth::user(), Menu::class);
+        // $this->authorize('delete', Auth::user(), Menu::class);
 
         $id = $request->get('food_id');
         Menu::where('food_id', $id)->delete();
