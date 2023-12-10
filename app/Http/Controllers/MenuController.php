@@ -17,13 +17,17 @@ class MenuController extends Controller
     }
 
     public function detail($id) {
+        $success = session()->get('success') ?? null;
         $menu = Menu::where('food_id', $id)->first();
 
         if($menu==null) {
             return redirect()->route('home');
         }
 
-        return view('public/menu', ['menu' => $menu]);
+        return view('public/menu', [
+            'menu' => $menu,
+            'success' => $success
+        ]);
     }
 
     public function mainCourse() {

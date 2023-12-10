@@ -11,6 +11,14 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body class="body-class">
+    @if (isset($success))
+        <div class="edit-profile-page-success-alerts">
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <div class="alert-message">{{ $success }}</div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    @endif
     <x-Navbar/>
     <div class="detail-body">
         <div class="detail-title">
@@ -21,6 +29,9 @@
                 <img src="{{asset('storage/images/'.$menu->food_img)}}" alt="Food">
             </div>
             <div class="detail-info">
+                <form action="{{ route('addToCart') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="menu_id" value="{{$menu->food_id}}">
                     <h2>{{$menu->food_name}}</h2>
                     <div class="info-extra">
                         <h4>Food Type</h4>
@@ -38,11 +49,10 @@
                         <h4>About This Food</h4>
                         <p>{{$menu->about_food}}</p>
                     </div>
-                    @if(auth()->check('member'))
-                        <button class="add-cart">
-                            <a href="">Add to Cart</a>
-                        </button>
+                    @if(auth()->check() && auth()->user()->role == 'member')
+                        <button type='submit' class="add-cart">Add to Cart</button>
                     @endif
+                </form>
             </div>
         </div>
     </div>

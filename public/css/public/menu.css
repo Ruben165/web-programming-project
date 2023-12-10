@@ -91,11 +91,21 @@
     background: dimgray;
     width: fit-content;
     padding: 0.3em 0.8em;
-}
-
-.add-cart a {
     text-decoration: none;
     color: gold;
     font-size: large;
     font-weight: bold;
+}
+
+.edit-profile-page-success-alerts {
+    position: fixed;
+    z-index: 3;
+    top: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    padding: 2em;
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Transaction extends Model
+class Cart extends Model
 {
     use HasFactory, HasUuids;
 
@@ -14,9 +14,9 @@ class Transaction extends Model
         'user_id'
     ];
 
-    public function transactionItems()
+    public function cartItems()
     {
-        return $this->hasMany(TransactionItem::class);
+        return $this->hasMany(CartItem::class);
     }
 
     public function user()

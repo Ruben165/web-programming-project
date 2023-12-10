@@ -26,8 +26,6 @@ class AuthController extends Controller
 
         $rememberMe = $request->get('remember-me');
 
-        // dd($credentials);
-
         if (Auth::attempt($credentials, $rememberMe)) {
             $request->session()->regenerate();
 

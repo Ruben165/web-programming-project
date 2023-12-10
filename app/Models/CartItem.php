@@ -6,21 +6,23 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Transaction extends Model
+class CartItem extends Model
 {
     use HasFactory, HasUuids;
 
     protected $fillable = [
-        'user_id'
+        'cart_id',
+        'menu_id',
+        'quantity'
     ];
 
-    public function transactionItems()
+    public function cart()
     {
-        return $this->hasMany(TransactionItem::class);
+        return $this->belongsTo(Cart::class);
     }
 
-    public function user()
+    public function menu()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Menu::class, 'menu_id', 'food_id');
     }
 }

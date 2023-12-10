@@ -8,13 +8,10 @@
         </div>
         <div class="navbar-links">
             <a href="{{ route('home') }}">Home</a>
-            @if(auth()->check('member') or auth()->check('admin'))
+            @if(auth()->check() && auth()->user()->role == 'member')
                 <a href="{{ route('search') }}">Search Food</a>
-            @endif
-            @if(auth()->check('member') or auth()->check())
-            <a href="">Cart</a>
-            @endif
-            @if(auth()->check() && auth()->user()->role == 'admin')
+                <a href="{{ route('cart') }}">Cart</a>
+            @elseif(auth()->check() && auth()->user()->role == 'admin')
                 <a href="{{ route('returnAddMenu') }}">Add Food</a>
                 <a href="{{ route('returnManageMenu') }}">Manage Food</a>
             @endif

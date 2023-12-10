@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -29,6 +30,10 @@ class UserController extends Controller
             'username' => $validated['username'],
             'email' => $validated['email'],
             'password' => bcrypt($validated['password'])
+        ]);
+
+        $cart = Cart::create([
+            'user_id' => $user->id
         ]);
 
         return redirect()->route('login');

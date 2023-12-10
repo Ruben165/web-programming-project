@@ -3,8 +3,11 @@
 use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransactionController;
+use App\Models\Transaction;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,10 +46,22 @@ Route::post('/register', [UserController::class, 'createUser'])->name('createUse
 // Log Out Page
 Route::get('/logout', [AuthController::class, 'deauthenticateUser'])->name('deauthenticateUser');
 
-// Profile Page
+// Protected Pages
 Route::middleware(['auth'])->group(function () {
+    // Profile Page
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::patch('/profile', [UserController::class, 'updateUser'])->name('updateUser');
+
+    // Cart Page
+    Route::get('/cart', [CartController::class, 'index'])->name('cart');
+    Route::post('/cart', [CartController::class, 'addToCart'])->name('addToCart');
+    Route::patch('/cart/{cartItemId}/inc', [CartController::class, 'increaseQuantity'])->name('increaseQuantity');
+    Route::patch('/cart/{cartItemId}/dec', [CartController::class, 'decreaseQuantity'])->name('decreaseQuantity');
+    Route::delete('/cart/{cartItemId}', [CartController::class, 'deleteFromCart'])->name('deleteFromCart');
+
+    // Checkout Page
+    Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+    Route::post('/checkout', [TransactionController::class, 'checkoutOrder'])->name('checkoutOrder');
 });
 
 // Add Menu Page

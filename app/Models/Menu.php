@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 
 class Menu extends Model
 {
-    protected $table = "menu";
+    use HasFactory, HasUuids;
+
     protected $primaryKey = "food_id";
+
     protected $fillable = [
         'food_name',
         'food_type',
@@ -20,6 +22,14 @@ class Menu extends Model
     ];
 
     public $timestamps = false;
-    
-    use HasFactory, HasUuids;
+
+    public function cartItems()
+    {
+        return $this->hasMany(CartItem::class, 'menu_id', 'food_id');
+    }
+
+    public function transactionItems()
+    {
+        return $this->hasMany(TransactionItem::class, 'menu_id', 'food_id');
+    }
 }
