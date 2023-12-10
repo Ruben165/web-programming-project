@@ -32,10 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-<<<<<<< HEAD
         Schema::dropIfExists('menus');
-=======
-        Schema::dropIfExists('Menu');
->>>>>>> ruben
     }
 };

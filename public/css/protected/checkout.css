@@ -4,7 +4,12 @@
     box-sizing: border-box;
 }
 
+.subtitle {
+    color: white;
+}
+
 .profile-body-content {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,7 +22,8 @@
 }
 
 .edit-profile-form {
-    padding: 3em;
+    width: 100%;
+    padding: 6em 2em;
     color: gold;
     display: flex;
     flex-direction: column;
@@ -27,7 +33,8 @@
 }
 
 .edit-profile-form-title {
-    font-weight: bold;
+    font-weight: bolder;
+    padding-bottom: 1vh;
 }
 
 .edit-profile-form-input-field {
@@ -51,23 +58,24 @@
 }
 
 .edit-profile-form-footer {
-    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
     gap: 1em;
+    padding-top: 2vh;
+    padding-left: 52.5vw;
 }
 
 .edit-profile-form-submit-button {
-    align-self: flex-end;
-    width: 30%;
     border: none;
     border-radius: 0.5em;
     outline: none;
     padding: 0.5em 1em;
     background-color: #333333;
-    color: #ffffff;
+    color: gold;
     font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    font-size: large;
 }
 
 .edit-profile-page-success-alerts {
@@ -96,4 +104,42 @@
 
 .edit-profile-page-error-alerts .alert-message {
     margin-right: 1em;
+}
+
+.form-top {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1vh 1vw;
+}
+
+.form-bottom {
+    padding-top: 2vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-profile-form-input-field-b {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.edit-profile-form-input-field-b input {
+    width: 65em;
+    height: 8vh;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 0.5em;
+    outline: none;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+select {
+    padding: 0.45em 0.6em;
+    border-radius: 0.5em;
 }

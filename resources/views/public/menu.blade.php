@@ -29,7 +29,7 @@
                 <img src="{{asset('storage/images/'.$menu->food_img)}}" alt="Food">
             </div>
             <div class="detail-info">
-                <form action="{{ route('addToCart') }}" method="POST">
+                <form action="{{ route('addToCart') }}" method="POST" class="form-info">
                     @csrf
                     <input type="hidden" name="menu_id" value="{{$menu->food_id}}">
                     <h2>{{$menu->food_name}}</h2>
