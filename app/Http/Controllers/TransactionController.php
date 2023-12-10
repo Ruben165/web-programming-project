@@ -12,7 +12,10 @@ class TransactionController extends Controller
 {
     public function index()
     {
-        return view('auth.transactions');
+        $transactions = Transaction::where('user_id', auth()->user()->id)->get();
+        return view('auth.transactions', [
+            'transactions' => $transactions,
+        ]);
     }
 
     public function checkoutOrder(Request $request)
@@ -46,6 +49,6 @@ class TransactionController extends Controller
             $cart->cartItems()->delete();
         });
     
-        return redirect()->back()->with('success', 'Order placed successfully');
+        return redirect()->route('home')->with('success', 'Transaction success!');
     }
 }

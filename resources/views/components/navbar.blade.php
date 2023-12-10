@@ -24,6 +24,7 @@
                 <div id="navbar-authenticated-section-menu-button" class="navbar-authenticated-menu-button">
                     @if (auth()->user()->profile_picture)
                         <img
+                            alt="User Profile Picture"
                             class="navbar-authenticated-section-user-icon"
                             src={{ asset('storage/' . str_replace('public/', '', auth()->user()->profile_picture)) }}
                         />
@@ -34,7 +35,7 @@
                 </div>
                 <div id="navbar-authenticated-section-dropdown-menu" class="navbar-authenticated-section-dropdown-menu">
                     <a href="{{ route('profile') }}">Profile</a>
-                    <a>Transaction History</a>
+                    <a href="{{ route('transactions') }}">Transaction History</a>
                     <a href="{{ route('deauthenticateUser') }}">Sign Out</a>
                 </div>
             </div>

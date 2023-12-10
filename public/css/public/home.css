@@ -120,3 +120,33 @@
     font-size: large;
     font-weight: bold;
 }
+
+.edit-profile-page-success-alerts {
+    position: fixed;
+    z-index: 100;
+    top: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    padding: 2em;
+}
+
+.edit-profile-page-error-alerts {
+    position: fixed;
+    z-index: 100;
+    top: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    padding: 2em;
+}
+
+.edit-profile-page-error-alerts .alert-message {
+    margin-right: 1em;
+}

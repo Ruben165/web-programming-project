@@ -47,7 +47,7 @@
         </div>
     </div>
     <div class="edit-profile-form-footer">
-        <button class="edit-profile-form-submit-button" type="submit">Cancel</button>
+        <a href="{{ route('cart') }}">Cancel</a>
         <button class="edit-profile-form-submit-button" type="submit">Place Order</button>
     </div>
 </form>

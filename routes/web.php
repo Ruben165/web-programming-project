@@ -61,6 +61,9 @@ Route::middleware(['auth'])->group(function () {
     // Checkout Page
     Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
     Route::post('/checkout', [TransactionController::class, 'checkoutOrder'])->name('checkoutOrder');
+
+    // Transaction History Page
+    Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions');
 });
 
 // Add Menu Page

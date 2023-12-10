@@ -11,6 +11,23 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body class="body-class">
+    @if ($errors->first())
+        <div class="edit-profile-page-error-alerts">
+            @foreach ($errors->all() as $error)
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <div class="alert-message">{{ $error }}</div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endforeach
+        </div>
+    @elseif (session('success'))
+        <div class="edit-profile-page-success-alerts">
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <div class="alert-message">{{ session('success') }}</div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    @endif
     <x-Navbar/>
     <div class="home-body">
         <div class="main">

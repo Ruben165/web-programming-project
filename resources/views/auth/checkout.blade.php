@@ -21,10 +21,10 @@
                 </div>
             @endforeach
         </div>
-    @elseif (isset($success))
+    @elseif (session('success'))
         <div class="edit-profile-page-success-alerts">
             <div class="alert alert-success alert-dismissible" role="alert">
-                <div class="alert-message">{{ $success }}</div>
+                <div class="alert-message">{{ session('success') }}</div>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         </div>
