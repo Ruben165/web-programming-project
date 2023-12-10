@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-x<?php
-=======
 <?php
->>>>>>> ruben
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
