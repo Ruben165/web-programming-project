@@ -15,7 +15,6 @@
 
 .add-body {
     width: 100%;
-    height: fit-content;
     font-style: normal;
     color: gold;
     display: flex;
@@ -25,8 +24,8 @@
 }
 
 .add-title {
+    width: -moz-fit-content;
     width: fit-content;
-    height: fit-content;
     align-self: center;
     color: gold;
 }
@@ -38,6 +37,7 @@
 
 .form-body {
     color: gold;
+    width: -moz-fit-content;
     width: fit-content;
     display: flex;
     flex-direction: column;
@@ -48,8 +48,8 @@
 }
 
 .form-body label {
+    width: -moz-fit-content;
     width: fit-content;
-    height: fit-content;
     font-weight: bold;
 }
 
@@ -64,8 +64,8 @@
 }
 
 .form-body button {
+    width: -moz-fit-content;
     width: fit-content;
-    height: fit-content;
     padding: 0.3em 0.5em;
 }
 

@@ -48,9 +48,9 @@
                     <tbody class="cart-table-body">
                         @foreach ($cart->cartItems as $cartItem)
                             <tr>
-                                <td>{{ $cartItem->menu->food_name }}</td>
-                                <td>{{ $cartItem->menu->food_price }}</td>
-                                <td>
+                                <td class="table-content">{{ $cartItem->menu->food_name }}</td>
+                                <td class="table-content">${{ $cartItem->menu->food_price }}</td>
+                                <td class="table-content-q">
                                     <form action="{{ route('decreaseQuantity', $cartItem->id) }}" method="POST">
                                         @csrf
                                         @method('PATCH')
@@ -65,8 +65,8 @@
                                         <button type="submit" class="btn btn-danger">+</button>
                                     </form>
                                 </td>
-                                <td>{{ $cartItem->menu->food_price * $cartItem->quantity }}</td>
-                                <td>
+                                <td class="table-content">${{ $cartItem->menu->food_price * $cartItem->quantity }}</td>
+                                <td class="table-content">
                                     <form action="{{ route('deleteFromCart', $cartItem->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
@@ -77,11 +77,11 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div>
-                    Total: {{ $total }}
+                <div class="checkout-res">
+                    <h2>Total: ${{ $total }}</h2>
                     <form action="{{ route('checkout') }}" method="GET">
                         @csrf
-                        <button type="submit" class="btn btn-danger">Checkout</button>
+                        <button type="submit" class="btn btn-danger">Proceed to Checkout</button>
                     </form>
                 </div>
             @else
@@ -96,6 +96,7 @@
             @endif
         </div>
     </div>
+    <x-Footer/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 </body>
