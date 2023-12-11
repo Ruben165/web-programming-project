@@ -10,9 +10,11 @@ use Illuminate\Support\Facades\Storage;
 
 class MenuController extends Controller
 {
+    public $pageSize = 6;
+
     public function index()
     {
-        $menu = Menu::all();
+        $menu = Menu::paginate($this->pageSize);
         return view('public/home', ['menu' => $menu]);
     }
 
@@ -31,7 +33,7 @@ class MenuController extends Controller
     }
 
     public function mainCourse() {
-        $menu = Menu::where('food_type', 'Main Course')->get();
+        $menu = Menu::where('food_type', 'Main Course')->paginate($this->pageSize);
         
         if($menu==null) {
             return redirect()->route('home');
@@ -41,7 +43,7 @@ class MenuController extends Controller
     }
 
     public function beverages() {
-        $menu = Menu::where('food_type', 'Beverages')->get();
+        $menu = Menu::where('food_type', 'Beverages')->paginate($this->pageSize);
 
         if($menu==null) {
             return redirect()->route('home');
@@ -51,7 +53,7 @@ class MenuController extends Controller
     }
 
     public function desserts() {
-        $menu = Menu::where('food_type', 'Desserts')->get();
+        $menu = Menu::where('food_type', 'Desserts')->paginate($this->pageSize);
 
         if($menu==null) {
             return redirect()->route('home');
@@ -70,29 +72,29 @@ class MenuController extends Controller
             if($type1==null) {
                 if($type2==null) {
                     if($type3==null) {
-                        $search = Menu::where('food_name', 'like','%'.$name.'%')->get();
+                        $search = Menu::where('food_name', 'like','%'.$name.'%')->paginate($this->pageSize);
                     } else {
-                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type3)->get();
+                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type3)->paginate($this->pageSize);
                     }
                 } else {
                     if($type3==null) {
-                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type2)->get();
+                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type2)->paginate($this->pageSize);
                     } else {
-                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type2)->orWhere('food_type', $type3)->get();
+                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type2)->orWhere('food_type', $type3)->paginate($this->pageSize);
                     }
                 }
             } else {
                 if($type2==null) {
                     if($type3==null) {
-                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type1)->get();
+                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type1)->paginate($this->pageSize);
                     } else {
-                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type1)->orWhere('food_type', $type3)->get();
+                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type1)->orWhere('food_type', $type3)->paginate($this->pageSize);
                     }
                 } else {
                     if($type3==null) {
-                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type1)->orWhere('food_type', $type2)->get();
+                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type1)->orWhere('food_type', $type2)->paginate($this->pageSize);
                     } else {
-                        $search = Menu::all();
+                        $search = Menu::paginate($this->pageSize);
                     }
                 }
             }
@@ -100,29 +102,29 @@ class MenuController extends Controller
             if($type1==null) {
                 if($type2==null) {
                     if($type3==null) {
-                        $search = Menu::all();
+                        $search = Menu::paginate($this->pageSize);
                     } else {
-                        $search = Menu::where('food_type', $type3)->get();
+                        $search = Menu::where('food_type', $type3)->paginate($this->pageSize);
                     }
                 } else {
                     if($type3==null) {
-                        $search = Menu::where('food_type', $type2)->get();
+                        $search = Menu::where('food_type', $type2)->paginate($this->pageSize);
                     } else {
-                        $search = Menu::where('food_type', $type2)->orWhere('food_type', $type3)->get();
+                        $search = Menu::where('food_type', $type2)->orWhere('food_type', $type3)->paginate($this->pageSize);
                     }
                 }
             } else {
                 if($type2==null) {
                     if($type3==null) {
-                        $search = Menu::where('food_type', $type1)->get();
+                        $search = Menu::where('food_type', $type1)->paginate($this->pageSize);
                     } else {
-                        $search = Menu::where('food_type', $type1)->orWhere('food_type', $type3)->get();
+                        $search = Menu::where('food_type', $type1)->orWhere('food_type', $type3)->paginate($this->pageSize);
                     }
                 } else {
                     if($type3==null) {
-                        $search = Menu::where('food_type', $type1)->orWhere('food_type', $type2)->get();
+                        $search = Menu::where('food_type', $type1)->orWhere('food_type', $type2)->paginate($this->pageSize);
                     } else {
-                        $search = Menu::all();
+                        $search = Menu::paginate($this->pageSize);
                     }
                 }
             }
@@ -145,29 +147,29 @@ class MenuController extends Controller
             if($type1==null) {
                 if($type2==null) {
                     if($type3==null) {
-                        $search = Menu::where('food_name', 'like','%'.$name.'%')->get();
+                        $search = Menu::where('food_name', 'like','%'.$name.'%')->paginate($this->pageSize);
                     } else {
-                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type3)->get();
+                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type3)->paginate($this->pageSize);
                     }
                 } else {
                     if($type3==null) {
-                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type2)->get();
+                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type2)->paginate($this->pageSize);
                     } else {
-                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type2)->orWhere('food_type', $type3)->get();
+                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type2)->orWhere('food_type', $type3)->paginate($this->pageSize);
                     }
                 }
             } else {
                 if($type2==null) {
                     if($type3==null) {
-                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type1)->get();
+                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type1)->paginate($this->pageSize);
                     } else {
-                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type1)->orWhere('food_type', $type3)->get();
+                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type1)->orWhere('food_type', $type3)->paginate($this->pageSize);
                     }
                 } else {
                     if($type3==null) {
-                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type1)->orWhere('food_type', $type2)->get();
+                        $search = Menu::where('food_name', 'like','%'.$name.'%')->where('food_type', $type1)->orWhere('food_type', $type2)->paginate($this->pageSize);
                     } else {
-                        $search = Menu::all();
+                        $search = Menu::paginate($this->pageSize);
                     }
                 }
             }
@@ -175,29 +177,29 @@ class MenuController extends Controller
             if($type1==null) {
                 if($type2==null) {
                     if($type3==null) {
-                        $search = Menu::all();
+                        $search = Menu::paginate($this->pageSize);
                     } else {
-                        $search = Menu::where('food_type', $type3)->get();
+                        $search = Menu::where('food_type', $type3)->paginate($this->pageSize);
                     }
                 } else {
                     if($type3==null) {
-                        $search = Menu::where('food_type', $type2)->get();
+                        $search = Menu::where('food_type', $type2)->paginate($this->pageSize);
                     } else {
-                        $search = Menu::where('food_type', $type2)->orWhere('food_type', $type3)->get();
+                        $search = Menu::where('food_type', $type2)->orWhere('food_type', $type3)->paginate($this->pageSize);
                     }
                 }
             } else {
                 if($type2==null) {
                     if($type3==null) {
-                        $search = Menu::where('food_type', $type1)->get();
+                        $search = Menu::where('food_type', $type1)->paginate($this->pageSize);
                     } else {
-                        $search = Menu::where('food_type', $type1)->orWhere('food_type', $type3)->get();
+                        $search = Menu::where('food_type', $type1)->orWhere('food_type', $type3)->paginate($this->pageSize);
                     }
                 } else {
                     if($type3==null) {
-                        $search = Menu::where('food_type', $type1)->orWhere('food_type', $type2)->get();
+                        $search = Menu::where('food_type', $type1)->orWhere('food_type', $type2)->paginate($this->pageSize);
                     } else {
-                        $search = Menu::all();
+                        $search = Menu::paginate($this->pageSize);
                     }
                 }
             }
@@ -211,12 +213,12 @@ class MenuController extends Controller
     }
 
     public function search() {
-        $result = Menu::all();
+        $result = Menu::paginate($this->pageSize);
         return view('auth/search', ['result' => $result]);
     }
 
     public function searchM() {
-        $result = Menu::all();
+        $result = Menu::paginate($this->pageSize);
         return view('auth/manage', ['result' => $result]);
     }
 
@@ -260,7 +262,7 @@ class MenuController extends Controller
     }
 
     public function returnManageMenu() {
-        $result = Menu::all();
+        $result = Menu::paginate($this->pageSize);
         return view('auth/manage', ['result' => $result]);
     }
 

@@ -59,6 +59,9 @@
                         </div>
                     @endforeach
                 </div>
+                <div>
+                    {{ $menu->links('pagination::bootstrap-5') }}
+                </div>
             @else
                 <div class="search-not-found">
                     <p>Food is not available</p>

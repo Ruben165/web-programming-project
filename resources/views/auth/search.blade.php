@@ -59,12 +59,15 @@
                             </a>
                         </div>
                     @endforeach
+                </div>
+                <div>
+                    {{ $result->links('pagination::bootstrap-5') }}
+                </div>
             @else
                 <div class="search-not-found">
                     <p>Food is Not Available</p>
                 </div>
             @endif
-            </div>
         </div>
     </div>
     <x-Footer/>
