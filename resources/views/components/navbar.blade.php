@@ -35,7 +35,9 @@
                 </div>
                 <div id="navbar-authenticated-section-dropdown-menu" class="navbar-authenticated-section-dropdown-menu">
                     <a href="{{ route('profile') }}">Profile</a>
-                    <a href="{{ route('transactions') }}">Transaction History</a>
+                    @if (auth()->check() && auth()->user()->role == 'member')
+                        <a href="{{ route('transactions') }}">Transaction History</a>
+                    @endif
                     <a href="{{ route('deauthenticateUser') }}">Sign Out</a>
                 </div>
             </div>
